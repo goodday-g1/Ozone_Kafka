@@ -1,5 +1,3 @@
-# 참고 강의. Kafka _ Dev원영
-- https://www.youtube.com/watch?v=catN_YhV6To
 ## **Kafka  기본 개념 및 생태계**
 
 ### 배경

@@ -1,0 +1,712 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[지원] Apache Kafka</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d8fdb6cc-0033-4ae0-a7a2-e0f9c76b1237" class="page sans"><header><img class="page-cover-image" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/2020_020.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/kafka.jpg"/></div><h1 class="page-title">[지원] Apache Kafka</h1></header><div class="page-body"><figure id="29d7666b-d236-4ad8-819a-42e7b4d39f51" class="link-to-page"><a href="https://www.notion.so/_-29d7666bd2364ad8819a42e7b4d39f51">발표용_정리</a></figure><figure id="70d73d87-9494-43b7-85dc-77d0c46a3e00" class="link-to-page"><a href="https://www.notion.so/Copy-of-_-70d73d87949443b785dc77d0c46a3e00">Copy of 발표용_정리</a></figure><h1 id="4dd12680-3632-4932-9814-388c273eb682" class="">0. Concept</h1><ul id="fdb3493c-85d0-4b32-8497-3ef40074907d" class="bulleted-list"><li style="list-style-type:disc">Kafka 란?<p id="98337ba4-2f57-4d22-afa4-965fa8c9a872" class="">Apache Kafka는 LinkedIn에서 개발/ <strong>&quot;분산 메시징 시스템&quot;</strong> (2011년, 오픈소스화(化))</p><p id="5661769b-4245-4100-8c66-593f301caa28" class="">대용량의 실시간 로그처리에 특화된 아키텍쳐 설계 → 기존 메시징 시스템보다 우수한 TPS</p></li></ul><ul id="50c03ccb-8635-45c2-bef7-fc984944e233" class="bulleted-list"><li style="list-style-type:disc">확장성이 뛰어난 분산 메시지 큐(FIFO : First In First Out)
+Q. 어떤 부분이 확장성이 뛰어난데? → Scale Out</li></ul><ul id="d1c4bfde-5f8f-4aed-938c-c06e42538950" class="bulleted-list"><li style="list-style-type:disc">분산 아키텍쳐 구성, Fault-tolerance한 아키텍처(with zookeeper), 데이터 유실 방지를 위한 구성
+Q. Fault-Tolerance ? 
+→ 파일 시스템에 메시지를 저장하므로, 데이터의 영속성 보장 → 고가용성!</li></ul><ul id="294c8205-3680-4bdd-8879-77f4607df6b4" class="bulleted-list"><li style="list-style-type:disc">AMQP, JMS API를 사용하지 않은 TCP기반 프로토콜 사용
+Q. AMQP? JMS API? TCP 기반 프로토콜은 뭐가 좋은데?</li></ul><ul id="3d13ec52-9c4e-4c33-b70b-39528742bb5d" class="bulleted-list"><li style="list-style-type:disc"><strong>Pub / Sub 메시징 모델</strong>을 채용
+Q. Pub/Sub 모델이 뭔데?<figure id="7f26ef56-f912-4d9e-bb3e-6df4fc4b6d42" class="link-to-page"><a href="https://www.notion.so/Pub-Sub-7f26ef56f9124d9ebb3e6df4fc4b6d42"><span class="icon">👉</span>Pub/Sub 모델</a></figure></li></ul><ul id="5bd11ef5-1fbb-4024-ba5a-94b95f5470d1" class="bulleted-list"><li style="list-style-type:disc">읽기/쓰기 성능을 중시</li></ul><ul id="6b26bee5-6883-400e-83e4-2e77b95a5219" class="bulleted-list"><li style="list-style-type:disc">Producer가 Batch형태로 broker로 메시지 전송이 가능하여 속도 개선
+→ Batch 형태로 전송하는 부분이 왜 속도가 개선되지? 속도가 어떻게 개선되는지 궁금해!</li></ul><ul id="6201bb79-6ee3-413f-a9be-835037b1ee5b" class="bulleted-list"><li style="list-style-type:disc">Consume된 메시지를 바로 삭제하지 않고, offset을 통한 consumer-group별 개별 consume가능
+→ Consume 된 메시지?
+→ Offset ?
+→ 개별 Consume?</li></ul><p id="c6677324-b420-40da-8af4-1a284df81db0" class="">
+<strong># Kafka website url </strong>: <a href="http://kafka.apache.org/">http://kafka.apache.org/</a></p><p id="ab06173d-2e80-43ff-9f68-26fe7c94adf2" class=""><strong># Github url</strong> : <a href="https://github.com/apache/kafka">https://github.com/apache/kafka</a></p><p id="1bd67fde-7c13-4b79-92fa-facd6bae6bd0" class=""><strong># Kafka contributors </strong>: <a href="https://github.com/apache/kafka/graphs/contributors">https://github.com/apache/kafka/graphs/contributors</a></p><p id="e392a7ce-6325-41f0-b5f4-e495b19f440d" class="">
+</p><h1 id="c37debb4-1e34-4f3a-9caf-51632235514d" class="">Kafka란?</h1><h3 id="0c2ed296-2d50-43e0-92f7-ac86d7740284" class=""><strong>_Kafka의 구성 요소 및 동작</strong></h3><figure id="9bd44b83-3146-4fc2-8f62-d262424ae113" class="image"><a href="https://blog.kakaocdn.net/dn/d2nDtD/btqE4pzsyPZ/Tcw9I6z3d7eHjeQ7uaTqa0/img.png"><img src="https://blog.kakaocdn.net/dn/d2nDtD/btqE4pzsyPZ/Tcw9I6z3d7eHjeQ7uaTqa0/img.png"/></a></figure><p id="bbadb607-2b96-4c48-b88b-eea21deff7b8" class="">kafka의 기본 구성</p><ul id="f440536e-47a7-410f-81df-dcb992f6fa35" class="bulleted-list"><li style="list-style-type:disc">publish-subscribe 모델을 기반으로 동작하며 크게 producer, consumer, broker로 구성</li></ul><ul id="5cc240ce-02dc-4952-88ea-43eeb041ea58" class="bulleted-list"><li style="list-style-type:disc">pub-sub 모델은 메시지를 특정 수신자에게 직접적으로 보내주는 시스템이 아님</li></ul><ul id="f846c624-7dc7-4331-b9a1-13327b7380d6" class="bulleted-list"><li style="list-style-type:disc">publisher는 메시지를 topic을 통해서 카테고리화</li></ul><ul id="2624d00e-821f-4a9d-a58a-2dc024a40cf4" class="bulleted-list"><li style="list-style-type:disc">분류된 메세지를 받기 위해 subscriber는 그 해당 topic을 subscribe함으로써 메세지를 읽어올 수 있음</li></ul><ul id="aa9e94af-1079-4009-9e9f-d2a71f704917" class="bulleted-list"><li style="list-style-type:disc">즉, <strong>publisher, subscriber 모두 topic에 대한 정보만 알고 있음</strong> (publisher/subscriber는 서로 모르는 상태)</li></ul><ul id="490c6c47-5cc8-4a05-b4be-a073040e91a6" class="bulleted-list"><li style="list-style-type:disc">Kafka는 확장성(scale-out)과 고가용성(high availability)을 위하여 broker들이 클러스터로 구성되어 동작하도록 설계<ul id="42d9396a-e2d5-46d5-894f-7e484a466823" class="bulleted-list"><li style="list-style-type:circle">심지어 broker가 1개 밖에 없을 때에도 클러스터로 동작</li></ul></li></ul><ul id="e3271e9e-23e6-4126-a3b0-e02b35bcaedf" class="bulleted-list"><li style="list-style-type:disc">클러스터 내의 broker에 대한 분산처리는 ZooKeeper가 담당</li></ul><p id="74b41756-1b4b-4df9-b59b-b6506eb6d047" class=""><strong>topic/partition</strong></p><ul id="a4861600-7bd3-415a-988d-1c20d679b990" class="bulleted-list"><li style="list-style-type:disc">메시지는 topic으로 분류되고, topic은 여러개의 partition으로 나뉘어진다.</li></ul><ul id="e26eae5c-12a4-41bb-be03-9cd3835769ee" class="bulleted-list"><li style="list-style-type:disc">partition 내의 한 칸은 log라고 불린다.</li></ul><ul id="8e72078f-1177-4d42-b80e-51105f6f257d" class="bulleted-list"><li style="list-style-type:disc">하나의 topic에 여러 개의 partition을 나눠서 메시지를 쓰는 이유? 병렬로 처리하기 위하여 분산 저장을 한다.<ul id="5b68a3e7-90c6-4f92-8e3c-29edc688df3d" class="bulleted-list"><li style="list-style-type:circle">한 번 늘린 partition은 줄일 수 없으므로 충분히 고려하여 늘려야함</li></ul><ul id="3ede4dfc-6b01-4a98-8942-198ac1014ace" class="bulleted-list"><li style="list-style-type:circle">partition을 늘렸을 때, 메시지는 Round-Robin 방식으로 쓰여짐</li></ul></li></ul><p id="37322063-56b8-446d-ad23-d962aa550091" class=""><strong>broker/zookeeper</strong></p><ul id="286289c4-0ff7-48cf-a109-094569695941" class="bulleted-list"><li style="list-style-type:disc">broker는 kafka의 서버를 말함</li></ul><ul id="458de455-e9e8-4111-8e96-2f02b72fafcf" class="bulleted-list"><li style="list-style-type:disc">zookeeper는 문산 메세지 큐의 정보를 관리하는 역할 (반드시 필요)</li></ul><h1 id="50d98a45-217a-4707-a0df-a5e3e072a865" class="">1. Kafka  배경</h1><p id="add62292-203d-4da3-94fe-3ba1a14d29d2" class="">
+</p><figure id="b1d6c466-1e6d-4f5f-9902-49be24ce0bf2" class="image"><a href="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled.png"><img style="width:720px" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled.png"/></a></figure><figure id="aa7abcf8-c60f-46f8-9dad-f14bcd748f5c" class="image"><a href="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%201.png"><img style="width:672px" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%201.png"/></a></figure><h1 id="08601329-a197-4b69-b291-aeac2eee8e85" class="">2. terminology</h1><ul id="d82e817f-3e7a-41f9-89f9-01021dcaa854" class="bulleted-list"><li style="list-style-type:disc"><strong>Kafka</strong>: 아파치 프로젝트 애플리케이션 이름. kafka cluster 라고도 부름</li></ul><ul id="50b7ccd8-b5a4-4659-bc92-859eb302bb14" class="bulleted-list"><li style="list-style-type:disc"><strong>Broker</strong>: 카프카 애플리케이션이 설치되어 있는 서버 혹은 노드
+Kafka를 구성하는 각 서버 1대 = 1 broker</li></ul><ul id="ef744502-c85d-48e3-8c35-e29ae0f8b464" class="bulleted-list"><li style="list-style-type:disc"><strong>Topic</strong>: producer 와 consumer 들이 보낸 자신들의 메세지(Data)를 구분하기 위한 네임. 
+topic 이라는 개념을 통해 다수의 producer 와 consumer 들이 보낸 메세지를 구분</li></ul><ul id="67d9dba0-ddc3-4138-a17e-12115e57e8d8" class="bulleted-list"><li style="list-style-type:disc"><strong>Partition</strong>: 병렬처리가 가능하게 메세지를 나눈 단위
+→ 많은 양의 메세지 처리를 위해서는 partition 증가
+→ topic이 복사(replicated)되어 나뉘어지는 단위</li></ul><ul id="72e0910a-88d7-4930-ae04-3e0c245508ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Produdcer &amp; Consumer</strong>: 메세지를 생산하여 broker의 topic으로 보내는 서버 또는 애플리케이션 
+&amp; broker 의 topic 으로 저장된 메세지를 가져오는 서버 또는 애플리케이션<p id="b101f097-5418-4a73-a097-6d5c80cb3971" class=""><strong>Producer</strong> : Broker에 data를 write하는 역할</p><p id="64549e01-bb2e-484b-9fcc-8e19f1c0593b" class=""><strong>Consumer</strong> : Broker에서 data를 read하는 역할</p><p id="c19319b6-388d-4c83-b0b6-9b24fd101005" class=""><strong>Consumer-Group </strong>: 메세지 소비자 묶음 단위(n consumers)</p></li></ul><ul id="e4b1eb3a-34c3-4821-b9e1-45ec6aed9ffd" class="bulleted-list"><li style="list-style-type:disc"><strong>Zookeeper</strong> : Kafka를 운용하기 위한 Coordination service(<a href="http://bcho.tistory.com/1016">zookeeper 소개</a>)</li></ul><h1 id="39024b99-eb1f-484c-8732-6d8e02739ade" class="">3. <strong>Kafka Architecture</strong></h1><figure id="dcead9d3-574d-4cfb-b55c-98c5a2943d81" class="image"><a href="https://t1.daumcdn.net/cfile/tistory/99B7A03C5C20888D04"><img src="https://t1.daumcdn.net/cfile/tistory/99B7A03C5C20888D04"/></a></figure><h1 id="0f437767-1b8c-4fad-addf-0222615ed6b8" class="">4. Kafka 방식</h1><h2 id="64a63fe0-664b-4c0b-b87c-7487afc155c5" class="">4.1 Pub(Publish) - <strong>Kafka 데이터 쓰기, 복제, 저장</strong></h2><figure id="0b864758-5d21-4147-8b12-22cd95643030" class="image"><a href="https://t1.daumcdn.net/cfile/tistory/996BD43F5C2089EA1C"><img src="https://t1.daumcdn.net/cfile/tistory/996BD43F5C2089EA1C"/></a></figure><ul id="52c5ae81-300f-40d4-a724-d552bf5bb7e5" class="bulleted-list"><li style="list-style-type:disc">브로커 별로 파티션 나뉘어진 그림</li></ul><p id="8c1ea8ce-5d07-4a05-8114-6252bf7abbc0" class="">Producer는 1개이상의 partition에 나뉘어 데이터를 write한다.</p><p id="487be689-88c7-4bb7-b462-1b8ed5fd529d" class="">상기 partition에 적힌 번호는 각 partition의 offset번호임.</p><p id="0947633d-aca3-4224-9e1a-1544307aa0ca" class="">각 Topic의 partition은 1개의 Leader Replica + 0개 이상의 follower Replica로 구성</p><p id="b04420c6-290a-407f-b984-52b6bc126813" class="">→ Leader Replica에 데이터를 write, 다른 broker에 follower replica로 복제</p><p id="234fd4f1-7278-47e6-9261-e23e5c41a35c" class="">→ Topic의 데이터(log) 중 replica 데이터는 log segment라는 파일(disk)에 기록</p><p id="623c5e07-2b6d-4677-a33f-44b60f0d0ead" class="">→ 메모리가 남아 있으면 페이지 캐시 사용</p><h2 id="f732990c-8346-423b-91bb-c86784d6f6c8" class="">4.2 Sub(Subscribe) - <strong>Kafka 데이터 읽기</strong></h2><figure id="2684f643-48b5-46f5-af9b-7f3e3306b124" class="image"><a href="https://t1.daumcdn.net/cfile/tistory/99D8AB4F5C208B1B28"><img src="https://t1.daumcdn.net/cfile/tistory/99D8AB4F5C208B1B28"/></a></figure><p id="66a812ff-32cf-4e67-b282-4cf3dc9a136b" class="">Consumer는 Partition단위로 데이터를 병렬로 읽을 수 있음</p><p id="9d937478-afdb-4d41-955e-f7010ad0dbf7" class="">→ 복수의 Consumer로 이루어진 Consumer group을 구성하여 1 topic의 데이터를 분산하여 처리 가능</p><p id="55bf921c-1966-4b8a-b9dc-6d64db265ff3" class="">→ <strong>Topic partition number &gt;= Consumer Group number</strong> 일 경우만 가능</p><p id="f2bd89b1-59ee-4807-872f-9cf5fdc969e3" class="">(Topic partition number &lt; Consumer Group number일 경우 <span style="border-bottom:0.05em solid">1개 이상의 consumer는 유휴 상태가 됨</span>)</p><p id="3c96679b-3332-46d8-afc2-6eec197e652f" class="">
+</p><h1 id="2662f420-851f-4689-8a3a-b8050d86609a" class="">5. K<strong>afka 특징</strong></h1><figure id="eb2de6c3-72b0-49ea-94de-afd681dcfc31" class="link-to-page"><a href="https://www.notion.so/Kafka-eb2de6c372b049ea94deafd681dcfc31"><span class="icon">👊</span>Kafka 특징</a></figure><figure id="abc05068-e581-4246-9783-606186a0a3fb" class="link-to-page"><a href="https://www.notion.so/2-abc05068e58142469783606186a0a3fb">카프카 특징2</a></figure><h1 id="68d4e30c-a5ce-4154-a429-6b11705ffb88" class="">6. <strong>Kafka 사용 주요 사례</strong></h1><p id="9a454134-dd2f-446d-b8b3-6d39c0f31267" class=""><strong>LinkedIn</strong> : activity streams, operational metrics, data bus(400 nodes, 18k topics, 220B msg/day in May 2014)</p><p id="b0a5a811-44f7-4d3e-8500-359eea3d4a80" class=""><strong>Netflix</strong> : real-time monitoring and event processing</p><p id="ef6f979a-69b3-4069-ad87-1c297ba10577" class=""><strong>Twitter</strong> : as part of their Storm real-time data pipelines</p><p id="2597730a-3118-4db0-892d-b3286a661d10" class=""><strong>Spotify</strong> : log delivery, Hadoop</p><p id="1e1ef992-f429-49fe-8c8c-bc312d0ebd7a" class=""><strong>11번가</strong> : 카프카를 이용한 비동기 주문시스템(<a href="https://medium.com/11st-pe-techblog/%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%BB%A8%EC%8A%88%EB%A8%B8-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EB%B0%B0%ED%8F%AC-%EC%A0%84%EB%9E%B5-4cb2c7550a72">카프카 컨슈머 애플리케이션 배포 전략 medium post</a>)</p><p id="dca48efb-d3ae-4bd2-a2e1-339481e23514" class="">
+</p><h1 id="bdd2bdbb-b2d0-4ee7-9f1b-edd675c84297" class="">7. 메시지 큐 (Kafka vs RabbitMQ 비교)</h1><figure id="b693695c-8b25-40e1-8ab4-a92645885e89" class="link-to-page"><a href="https://www.notion.so/b693695c8b2540e18ab4a92645885e89">메시지 큐</a></figure><h3 id="bc858cd7-5d28-49ba-bce7-370a39d41b57" class=""><strong>_Kafka의 차별점/장점</strong></h3><ul id="fc4576e3-3af4-4f8b-b51d-672dc18ca3e6" class="bulleted-list"><li style="list-style-type:disc">기존 메시징 시스템과는 달리 메시지를 파일 시스템에 저장함으로 영속성(durability)이 보장</li></ul><ul id="c9105106-c205-475f-aa88-9b1f3e6336c0" class="bulleted-list"><li style="list-style-type:disc">consumer가 broker로 부터 직접 메시지를 가지고 가는 pull 방식으로 동작</li></ul><ul id="1352098f-95a9-4341-82a4-6c822d4a4692" class="bulleted-list"><li style="list-style-type:disc"><strong>producer 중심적</strong>, 많은 양의 데이터를 파티셔닝하는데에 기반을 둔다</li></ul><ul id="ae49c150-0a8f-4c4b-9e46-58864e749d7f" class="bulleted-list"><li style="list-style-type:disc">consumer가 전달 상태를 기억함</li></ul><ul id="98cb8851-6350-4bd1-861a-882cb4d107ed" class="bulleted-list"><li style="list-style-type:disc"><strong>어마어마한 양의 데이터를 처리</strong>해야 할 때 사용</li></ul><p id="96c8f49f-7208-4291-b86f-2aa60543bd2e" class="">
+</p><ul id="ff07dc00-70c6-4545-ada7-a56fc8b52096" class="bulleted-list"><li style="list-style-type:disc">kafka가 적절한 곳</li></ul><p id="854ddc41-31c3-40b3-987f-194b80079c69" class="">Kafka는 복잡한 라우팅에 의존하지 않고 최대 처리량으로 스트리밍하는 데 가장 적합
+또한 이벤트 소싱, 스트림 처리 및 일련의 이벤트로 시스템에 대한 모델링 변경을 수행하기 이상적 
+Kafka는 다단계 파이프라인에서 데이터를 처리하는 데도 적합
+→ 결론적으로 스트리밍 데이터를 저장, 읽기, 다시 읽기 및 분석하는 프레임워크가 필요한 경우
+     정기적으로 감사하는 시스템이나 메시지를 영구적으로 저장하는 데 이상적(&quot;실시간 처리&quot;)</p><hr id="278c8bac-f37d-4979-a501-a4d471aacbf8"/><figure id="4eb7f6ff-0ec5-4068-8f05-c0edf8198f38" class="link-to-page"><a href="https://www.notion.so/Rabbit-MQ-4eb7f6ff0ec540688f05c0edf8198f38"><span class="icon">🐰</span>Rabbit MQ</a></figure><h3 id="be6faff0-e8d5-439a-badd-c9c9d912a2db" class="">RabbitMQ vs Kafka</h3><ul id="550c93d6-35e4-48e4-83d3-26e5aecc6b29" class="bulleted-list"><li style="list-style-type:disc"><strong>RabbitMQ</strong></li></ul><figure id="333b7c0d-c93b-4e7f-bdbe-3a81ac00e72f" class="image"><a href="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%202.png"><img style="width:520px" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%202.png"/></a></figure><ul id="475a40cb-ee81-47ea-a9db-80e10e333f7e" class="bulleted-list"><li style="list-style-type:disc">Kafka<figure id="12ec5fc7-6dc3-4651-b7b3-c636a777a647" class="image"><a href="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%203.png"><img style="width:850px" src="%5B%E1%84%8C%E1%85%B5%E1%84%8B%E1%85%AF%E1%86%AB%5D%20Apache%20Kafka%20d8fdb6cc00334ae0a7a2e0f9c76b1237/Untitled%203.png"/></a></figure></li></ul><p id="d0f437fb-d0be-439d-9459-23abfc33f93f" class="">
+</p><ul id="cb0080c0-7cd3-48ac-813f-29268e5e4b9f" class="bulleted-list"><li style="list-style-type:disc">설계 차이 : RabbitMQ는 메시지 브로커 방식,  Kafka는 pub/sub 방식</li></ul><p id="6ffb5466-a73f-45ce-b4c5-ccd55d42472b" class="">   → 메시지 브로커란?
+       응용프로그램, 서비스 및 시스템이 정보를 통신하고 교환할 수 있도록 하는 소프트웨어 모듈
+       메시지 브로커는 지정된 수신인에게 메시지를 확인, 라우팅, 저장 및 배달       
+       브로커는 다른 응용 프로그램 간의 중개자로 작동하여 보낸 사람이 소비자의 위치, 활성 여부, 
+       또는 그 중 몇 개가 있는지도 모르게 메시지를 보낼 수 있음
+
+그러나 pub/sub은 생산자가 원하는 각 메시지를 게시할 수 있도록 하는 메시지 배포 패턴</p><ul id="74a04406-3564-4cfa-8694-6426e0ecdac7" class="bulleted-list"><li style="list-style-type:disc">Kafka는 고성능을 추구하기 때문에 비교적 무거운 편,
+따라서 굳이 대용량 데이터를 다루지 않는다면 가벼운 RabbitMQ가 더 나을 수 있음
+스트리밍 데이터를 더 쉽게 처리하는 클라이언트 라이브러리 구현인 Kafka Streams도 유용</li></ul><p id="ced2d19d-741d-4697-8f93-a5e6d0989313" class="">
+</p><p id="1033920a-2b0b-4684-95ce-4e8923eff013" class="">→ 즉, 사용 목적에 따라서 메시지 큐 방식을 선택해야겠습니다.</p><ul id="737f4773-562d-4e10-8786-eb8215ffd859" class="bulleted-list"><li style="list-style-type:disc">kafka가 적절한 곳</li></ul><p id="7a2b85a0-cfa4-4cfe-acdf-fdf9a2fb8c53" class="">Kafka는 복잡한 라우팅에 의존하지 않고 최대 처리량으로 스트리밍하는 데 가장 적합
+또한 이벤트 소싱, 스트림 처리 및 일련의 이벤트로 시스템에 대한 모델링 변경을 수행하기 이상적 
+Kafka는 다단계 파이프라인에서 데이터를 처리하는 데도 적합
+→ 결론적으로 스트리밍 데이터를 저장, 읽기, 다시 읽기 및 분석하는 프레임워크가 필요한 경우
+     정기적으로 감사하는 시스템이나 메시지를 영구적으로 저장하는 데 이상적(&quot;실시간 처리&quot;)</p><p id="610c098b-a4a2-4a36-9443-ca81764dacac" class="">
+</p><ul id="d31c614d-bf98-4948-8620-411ba8b272cb" class="bulleted-list"><li style="list-style-type:disc">RabbitMQ가 적절한 곳</li></ul><p id="f2312969-5ba4-437d-b00a-d1a915d4c2b4" class="">복잡한 라우팅의 경우에는 RabbitMQ를 사용
+RabbitMQ는 신속한 요청 - 응답이 필요한 웹 서버에 적합
+또한 부하가 높은 작업자(20K 이상 메시지/초) 간에 부하를 공유
+백그라운드 작업이나 PDF 변환, 파일 검색 또는 이미지 확장과 같은 장기 실행 작업도 처리 가능</p><p id="3b0f4023-d6fc-4eb6-9a80-923a59a6a603" class="">→ 장시간의 Task, 안정적인 백그라운드 작업 실행, 애플리케이션 간 내부 통신/통합이 필요할때</p><p id="1498f378-fc30-4c13-a63f-acb69a5e9c2b" class="">
+</p></div></article></body></html>

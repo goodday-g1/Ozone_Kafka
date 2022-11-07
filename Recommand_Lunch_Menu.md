@@ -46,7 +46,7 @@ producer = KafkaProducer(acks=0, compression_type='gzip',
 import datetime
 
 today_weather_url = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?"
-service_key = "5u74wYTbUWICkRdmQz4rslGLy1oBGoKKlDKIv38OSjbj%2Bzuy4193upSJihTruf13QIyRRcrqUjVBAyZNUdZ8GQ%3D%3D"
+service_key = #{SERVICE KEY}
 
 base_date = datetime.datetime.today().strftime("%Y%m%d") # base_date =  "20211027"
 
@@ -293,8 +293,8 @@ keyword = "점심"
 cnt = 20
 
 # 로그인 정보
-username = 'bips1_t'
-userpw = 'hyperdata1234!'
+username = #ID
+userpw = #PW
 time.sleep(3)
 
 # 해시태그 url 값
@@ -310,8 +310,8 @@ loginUrl = 'https://www.instagram.com/accounts/login/'
 ### 1.2.3 인스타그램 로그인 (Chrome Driver 실행)
 def insta_login(driver):
     # 로그인 정보
-    username = 'bips1_t'
-    userpw = 'hyperdata1234!'
+    username = #ID
+    userpw = #PW
     time.sleep(3)
 
 
@@ -607,8 +607,8 @@ import json
 import re
 
 # Naver API 요청
-client_id = "Se7XSph7mOEYYNzJ5suG"
-client_secret = "9q0eQcgNgD"
+client_id = #ID
+client_secret = #SECRET
 
 url = "https://openapi.naver.com/v1/search/local"
 lm = "수내 떡볶이 맛집"

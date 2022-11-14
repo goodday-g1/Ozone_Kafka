@@ -220,8 +220,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 keyword = "점심"
 cnt = 20
 
-username = #ID
-userpw = #PW
+#username = #INSTA_ID
+#userpw = #INSTA_PW
 time.sleep(3)
 
 url = "https://www.instagram.com/explore/tags/{}/".format(keyword)
